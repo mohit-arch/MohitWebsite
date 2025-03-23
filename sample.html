@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Button with Logo & Opener</title>
+    <style>
+        /* Floating WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .whatsapp-button img {
+            width: 60px; /* Adjust size */
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        /* Initial Message Opener */
+        .whatsapp-message {
+            position: fixed;
+            bottom: 140px;
+            right: 20px;
+            background-color: white;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            display: none; /* Initially hidden */
+            z-index: 999;
+            max-width: 200px;
+        }
+
+        .whatsapp-message:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp Initial Opener -->
+    <div class="whatsapp-message" id="whatsapp-message">
+        👋 Hey there! Need help? Chat with us on WhatsApp.
+    </div>
+
+    <!-- WhatsApp Floating Button with Logo -->
+    <a href="https://wa.me/9654606399" target="_blank" class="whatsapp-button" id="whatsapp-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script>
+        // Show initial message when page loads
+        window.onload = function() {
+            let messageBox = document.getElementById("whatsapp-message");
+            messageBox.style.display = "block";
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageBox.style.display = "none";
+            }, 5000);
+        };
+    </script>
+
+</body>
+</html>
